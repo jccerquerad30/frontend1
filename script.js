@@ -1,4 +1,9 @@
-const API = "http://localhost:3000/api";
+// Detectar si está en producción o desarrollo
+const isDevelopment = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+const API = isDevelopment ? "http://localhost:3000/api" : "https://backend1-8x0k.onrender.com/api";
+
+console.log("🌐 Entorno:", isDevelopment ? "Desarrollo" : "Producción");
+console.log("📡 API URL:", API);
 
 // --- LOGIN ---
 const formLogin = document.getElementById("formLogin");
