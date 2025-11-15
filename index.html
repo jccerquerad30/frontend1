@@ -10,7 +10,14 @@
   <div class="login-container">
     <h1>Ingreso SPOA Virtual</h1>
 
-    <form id="formLogin" class="login-form">
+    <!-- Tabs para Login/Registro -->
+    <div class="tabs">
+      <button class="tab-button active" id="tabLogin">Ingresar</button>
+      <button class="tab-button" id="tabRegistro">Registrarse</button>
+    </div>
+
+    <!-- FORMULARIO DE LOGIN -->
+    <form id="formLogin" class="login-form tab-content active">
       <div class="form-group">
         <label for="rol">Seleccione su rol:</label>
         <select id="rol" required>
@@ -34,8 +41,38 @@
       <button type="submit" class="btn-login">Ingresar</button>
     </form>
 
+    <!-- FORMULARIO DE REGISTRO -->
+    <form id="formRegistro" class="login-form tab-content">
+      <div class="form-group">
+        <label for="rolRegistro">Seleccione su rol:</label>
+        <select id="rolRegistro" required>
+          <option value="">-- Seleccione una opción --</option>
+          <option value="juzgado">Juzgado</option>
+          <option value="demandante">Demandante</option>
+          <option value="demandado">Demandado</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="usuarioRegistro">Crear usuario:</label>
+        <input type="text" id="usuarioRegistro" placeholder="Ingrese un nombre de usuario" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contraseñaRegistro">Crear contraseña:</label>
+        <input type="password" id="contraseñaRegistro" placeholder="Ingrese una contraseña" required>
+      </div>
+
+      <div class="form-group">
+        <label for="contraseñaConfirm">Confirmar contraseña:</label>
+        <input type="password" id="contraseñaConfirm" placeholder="Confirme su contraseña" required>
+      </div>
+
+      <button type="submit" class="btn-login">Registrarse</button>
+    </form>
+
     <div class="login-info">
-      <p><small>Si no tiene usuario, contacte al administrador</small></p>
+      <p><small>Si tiene problemas, contacte al administrador</small></p>
     </div>
   </div>
 

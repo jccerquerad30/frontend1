@@ -244,3 +244,53 @@ footer {
   color: white;
   border-top: 4px solid var(--dorado);
 }
+
+/* ==== TABS PARA LOGIN/REGISTRO ==== */
+.tabs {
+  display: flex;
+  margin-bottom: 25px;
+  gap: 10px;
+  border-bottom: 2px solid var(--gris-borde);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  color: var(--azul-medio);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: var(--azul-oscuro);
+}
+
+.tab-button.active {
+  color: var(--azul-oscuro);
+  border-bottom-color: var(--dorado);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

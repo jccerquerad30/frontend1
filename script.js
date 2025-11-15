@@ -5,8 +5,29 @@ const API = isDevelopment ? "http://localhost:3000/api" : "https://backend1-y43e
 console.log("🌐 Entorno:", isDevelopment ? "Desarrollo" : "Producción");
 console.log("📡 API URL:", API);
 
-// --- LOGIN ---
+// --- TABS ---
+const tabLogin = document.getElementById("tabLogin");
+const tabRegistro = document.getElementById("tabRegistro");
 const formLogin = document.getElementById("formLogin");
+const formRegistro = document.getElementById("formRegistro");
+
+if (tabLogin && tabRegistro) {
+  tabLogin.addEventListener("click", () => {
+    tabLogin.classList.add("active");
+    tabRegistro.classList.remove("active");
+    formLogin.classList.add("active");
+    formRegistro.classList.remove("active");
+  });
+
+  tabRegistro.addEventListener("click", () => {
+    tabRegistro.classList.add("active");
+    tabLogin.classList.remove("active");
+    formRegistro.classList.add("active");
+    formLogin.classList.remove("active");
+  });
+}
+
+// --- LOGIN ---
 if (formLogin) {
   formLogin.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -55,6 +76,77 @@ if (formLogin) {
       alert("Error de conexión con el servidor. Verifique que esté disponible.");
       btnSubmit.disabled = false;
       btnSubmit.textContent = "Ingresar";
+    }
+  });
+}
+
+// --- REGISTRO ---
+if (formRegistro) {
+  formRegistro.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const rol = document.getElementById("rolRegistro").value;
+    const usuario = document.getElementById("usuarioRegistro").value.trim();
+    const contraseña = document.getElementById("contraseñaRegistro").value;
+    const contraseñaConfirm = document.getElementById("contraseñaConfirm").value;
+
+    // Validaciones
+    if (!rol || !usuario || !contraseña || !contraseñaConfirm) {
+      alert("Por favor complete todos los campos");
+      return;
+    }
+
+    if (contraseña !== contraseñaConfirm) {
+      alert("Las contraseñas no coinciden");
+      return;
+    }
+
+    if (contraseña.length < 6) {
+      alert("La contraseña debe tener al menos 6 caracteres");
+      return;
+    }
+
+    if (usuario.length < 3) {
+      alert("El usuario debe tener al menos 3 caracteres");
+      return;
+    }
+
+    // Deshabilitar botón
+    const btnSubmit = formRegistro.querySelector("button[type='submit']");
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = "Registrando...";
+
+    try {
+      const res = await fetch(`${API}/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ usuario, contraseña, rol })
+      });
+
+      const data = await res.json();
+
+      if (!data.ok) {
+        alert(`Error: ${data.msg}`);
+        btnSubmit.disabled = false;
+        btnSubmit.textContent = "Registrarse";
+        return;
+      }
+
+      alert("✓ Registro exitoso! Ahora puedes ingresar con tus credenciales.");
+      
+      // Limpiar formulario
+      formRegistro.reset();
+      
+      // Volver a tab de login
+      tabLogin.click();
+      
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = "Registrarse";
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Error al registrarse. Intenta nuevamente.");
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = "Registrarse";
     }
   });
 }
