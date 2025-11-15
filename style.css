@@ -1,0 +1,246 @@
+/* ==== FUENTE Y BASE ==== */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f5f7;
+  color: #333;
+}
+
+/* ==== COLORES INSTITUCIONALES ==== */
+:root {
+  --azul-oscuro: #003366;
+  --azul-medio: #0a4f84;
+  --azul-claro: #e6edf4;
+
+  --dorado: #C8A951;
+  --rojo-error: #c0392b;
+
+  --gris-borde: #d4d4d4;
+}
+
+/* ======================================================
+                    LOGIN – INSTITUCIONAL
+======================================================== */
+
+.login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--azul-claro);
+}
+
+.login-container {
+  background: white;
+  padding: 35px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  width: 340px;
+  text-align: center;
+  border-top: 8px solid var(--dorado);
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  color: var(--azul-oscuro);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.login-container label {
+  display: block;
+  text-align: left;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.login-container input,
+.login-container select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid var(--gris-borde);
+}
+
+.login-container input:focus,
+.login-container select:focus {
+  outline: 2px solid var(--azul-medio);
+}
+
+.login-container button {
+  background: var(--azul-oscuro);
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  padding: 10px;
+  margin-top: 18px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-container button:hover {
+  background: var(--azul-medio);
+}
+
+/* ======================================================
+                ENCABEZADO INSTITUCIONAL
+======================================================== */
+
+header {
+  background: var(--azul-oscuro);
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 4px solid var(--dorado);
+}
+
+header h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+header button {
+  background: var(--rojo-error);
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+header button:hover {
+  background: #a1291e;
+}
+
+/* ======================================================
+                     CONTENEDORES
+======================================================== */
+
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 10px;
+}
+
+.section-title {
+  color: var(--azul-oscuro);
+  font-weight: bold;
+  border-left: 5px solid var(--dorado);
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+/* ======================================================
+                     TARJETAS
+======================================================== */
+
+.formulario,
+.tabla {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 35px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 6px solid var(--azul-oscuro);
+}
+
+.formulario h2,
+.tabla h2 {
+  color: var(--azul-oscuro);
+  font-size: 20px;
+  border-bottom: 1px solid var(--gris-borde);
+  padding-bottom: 8px;
+  margin-bottom: 18px;
+}
+
+/* ======================================================
+                     FORMULARIOS
+======================================================== */
+
+textarea, input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid var(--gris-borde);
+  margin-top: 6px;
+}
+
+textarea:focus,
+input:focus {
+  outline: 2px solid var(--azul-medio);
+}
+
+button {
+  background: var(--azul-oscuro);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: var(--azul-medio);
+}
+
+/* ======================================================
+                     TABLA
+======================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: var(--azul-oscuro);
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--gris-borde);
+}
+
+tr:nth-child(even) {
+  background: var(--azul-claro);
+}
+
+/* ======================================================
+                     INFO DE SALA
+======================================================== */
+#infoSala p {
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+#infoSala span {
+  font-weight: bold;
+  color: var(--azul-medio);
+}
+
+/* ======================================================
+                      FOOTER
+======================================================== */
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: var(--azul-oscuro);
+  color: white;
+  border-top: 4px solid var(--dorado);
+}

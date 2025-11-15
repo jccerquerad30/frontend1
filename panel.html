@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPOA - Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1 id="tituloPanel">Panel del Usuario</h1>
+    <button id="cerrarSesion">Cerrar sesión</button>
+  </header>
+
+  <main>
+    <section class="salas">
+      <h2>Salas</h2>
+      <ul id="listaSalas"></ul>
+    </section>
+
+    <section class="formulario">
+      <h2>Registrar avance</h2>
+      <form id="formAvance">
+        <label>Seleccionar sala:</label>
+        <select id="salaSeleccionada" required></select>
+
+        <label>Descripción del avance:</label>
+        <textarea id="descripcionAvance" required></textarea>
+
+        <button type="submit">Registrar avance</button>
+      </form>
+    </section>
+
+    <section class="tabla">
+      <h2>Historial de avances</h2>
+      <table id="tablaAvances">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Sala</th>
+            <th>Parte</th>
+            <th>Descripción</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
